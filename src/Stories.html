@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+			body, html{
+                height: 100%;
+                margin: 0;
+            }
+            body{
+                background-color: #fd5a5a;
+            }   
+            
+            div{
+                align-content: center;
+            }
+            
+            p{
+                color:white;
+                font-size: 20px;
+                height: 100%;
+                width:40%;
+            }
+            
+            img{
+                height: 300px;
+                width: 40%;
+            }
+            
+            h1{
+                font-size: 80px;
+                color:white;
+            }
+			
+			ul.menubar{ 
+                display: block;
+                margin: auto;
+                text-align: center;
+                padding-top: 5%;
+                padding-bottom: 5%;
+                margin: 0px;
+                list-style-type:none;
+                background-color:red;
+				height:12%;
+               }
+            li.menubar{
+                display:inline;
+                padding-left: 60px;
+                padding-right: 30px;
+            }
+            a.menubar{
+                display: inline;
+                text-decoration:none;
+                font-weight:bolder;
+                color:white;
+                font-size:30px;
+                font-family: sans-serif;
+                transition-duration: 1s;
+            }
+            a.menubar:hover{
+                color:lightpink;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <center><h1>STORY OF THE DAY</h1></center>
+        </div>
+		<ul class = "menubar">
+			<li class = "menubar"><a class = "menubar" href="/Project/Home.html">Home</a></li>
+			<li class = "menubar"><a class = "menubar" href="/Project/Info.html">Information</a></li>
+            <li class = "menubar"><a class = "menubar" href="/Project/Eligibility.html">Eligibility</a></li>
+            <li class = "menubar"><a class = "menubar" href = "/Project/Stories.html">Stories</a></li>
+			<li class = "menubar"><a class = "menubar" href = "/Project/ContactUs.html">Contact Us</a></li>
+            
+        </ul>
+    </body>
+    <script>
+        var stories = new Array("Fortis Hospital, Bhopal, found donors using BLOOD BROTHERS and saved Kamlesh's life.", "Our legendary musician Vennu Mallesh wouldn't be alive today if it weren't for BLOOD BROTHERS.", "BLOOD BROTHERS helped save the life of one of the great mathematicians of the 21st century.");
+        var images = new Array("Kamlesh.jpg", "Vennu.jpg", "Mans.jpg")
+        var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+        var beginDate = new Date(2017,1,1);
+        var now = new Date();
+
+        var diffDays = Math.round(Math.abs((now.getTime() - beginDate.getTime())/(oneDay)));
+        
+        storyNumber = diffDays%(images.length);
+        
+        var p = document.createElement("p");
+        p.textContent = stories[storyNumber];
+        var img = document.createElement("img");
+        img.src = images[storyNumber];
+        
+        var center = document.body.querySelector('center');
+        center.appendChild(img);
+        center.appendChild(p);
+        
+    </script>
+</html>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+			
+
+            body, html {
+				width:100%;
+                height: 100%;
+                margin: 0;
+				
+            }
+            
+            .parallax4 {
+                /* The image used */
+                background-image: url('InfoCover.jpg');
+                /* Full height */
+                height: 70%; 
+				z-index:1;
+                /* Create the parallax scrolling effect */
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+			
+            .parallax1 {
+                /* The image used */
+                background-image: url('InfoCover22.jpg');
+                /* Full height */
+                height: 100%; 
+				z-index:1;
+                /* Create the parallax scrolling effect */
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            
+            .content{
+				
+				display: flex;
+				background-color: #fd5a5a;
+				z-index:1;
+				padding-left: 10%;
+                padding-right: 10%;
+                padding-top: 5%;
+                padding-bottom: 5%;
+            }
+			
+			.content > div{
+				flex:1;
+			}
+            
+            .text{
+                margin-bottom: 10%;
+                font-size: 25px;
+                color: white;
+                font-family: Bookman;
+            }
+            
+			#left{
+				border: 10px solid black;
+				margin:20px;
+				padding-top: 3%;
+                padding-bottom: 3%;
+				padding-left:1%;
+				padding-right:1%;
+				height:400px;
+				z-index:0;
+				width: 20%;
+				
+				font-size: 25px;
+                font-family: Bookman;
+				text-align:center;
+                font-weight:bolder;
+				color:black;
+				background-color: #7fff62;
+				box-shadow: -10px 10px 10px black;
+			}
+			
+			#popUpImage{
+				height:449px;
+				width:800px;
+				margin:0 auto;
+				position:relative;
+				z-index:50;
+				display:none;
+				background-color:olive;
+				border:5px solid black;
+				border-radius:10px;
+			}
+			#popUpImage:target, #popUpImage:target + #cover{
+				display:block;
+			}
+			.cancel
+			{
+				display:block;
+				position:absolute;
+				top:3px;
+				right:2px;
+				background:transparent;
+				color:black;
+				height:30px;
+				width:35px;
+				font-size:30px;
+				text-align:center;
+				font-weight:bold;
+			}
+			
+			
+			#center{
+				border: 10px solid black;
+				margin:20px;
+				padding-top: 3%;
+                padding-bottom: 3%;
+				padding-left:1%;
+				padding-right:1%;
+				width: 20%;
+				z-index:1;
+				height:400px;
+				font-size: 25px;
+                font-family: Bookman;
+				text-align:center;
+				font-weight:bolder;
+				color:black;
+				background-color: blue;
+				opacity:0.5;
+				box-shadow: 0px 10px 10px black;
+				
+			}
+			
+			#right{
+				border: 10px solid black;
+				margin:20px ;
+				padding-top: 3%;//1
+                padding-bottom: 3%;//1
+				padding-left:1%;//.5
+				padding-right:1%;
+				width: 22%;
+				z-index:1;
+				height:440px;
+				font-size: 25px;
+                font-family: Bookman;
+				text-align:center;
+				font-weight:bolder;
+				color:black;
+				background-color:hsl(60, 100%, 50%);
+				opacity:0.5;
+				box-shadow: 10px 10px 10px black;
+				
+			}
+			
+			
+            .button {
+                display: block;
+                margin: auto;
+                background-color: white; /* Green */
+                border: 2px solid #7fff62;
+                color: #7fff62;
+                width: 50%;
+                padding-top: 3%;
+                padding-bottom: 3%;
+                text-align: center;
+                text-decoration: none;
+                font-size: 20px;
+                font-weight: bold;
+                border-radius: 10px;
+                transition-duration: 1s;
+            }
+            
+            .button:hover{
+                border: 2px solid white;
+                background-color: #7fff62;
+                color: white;
+            }
+            
+            ul.menubar{ 
+                display: block;
+                margin: auto;
+                text-align: center;
+                padding-top: 5%;
+                padding-bottom: 5%;
+                margin: 0px;
+                list-style-type:none;
+                background-color:red;
+               }
+            li.menubar{
+                display:inline;
+                padding-left: 60px;
+                padding-right: 30px;
+            }
+            a.menubar{
+                display: inline;
+                text-decoration:none;
+                font-weight:bolder;
+                color:white;
+                font-size:30px;
+                font-family: sans-serif;
+                transition-duration: 1s;
+            }
+            a.menubar:hover{
+                color:lightpink;
+            }
+			
+			#cover{
+				position:fixed;
+				top:0;
+				left:0;
+				background:rgba(0,0,0,0.6);
+				z-index:1;
+				width:100%;
+				height:100%;
+				display:none;
+			}
+			
+			.modal1{
+				display: none;
+				position: fixed;
+				z-index: 20;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				background-color: rgb(0, 0, 0, 0.4);
+				background: fixed;
+				
+			}
+			// MAKE IT STOOOOOOP
+			
+			body.modal1-open {
+				overflow: hidden;
+				position: fixed;
+			}
+			
+			.modal1-content{
+				background: linear-gradient(to top, purple, #7fff62);//#7fff62;//#fefefe;
+				margin: 5% auto;
+				padding: 5%;
+				border: 15px solid black;
+				width: 80%;
+				font-size: 25px;
+                font-family: Bookman;
+				font-weight:bolder;
+				color:black;
+			}
+			
+			.modal2{
+				display: none;
+				position: fixed;
+				z-index: 20;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				background-color: red;
+				background: fixed;
+			}
+			
+			.modal2-content{
+				background: linear-gradient(to top, hsl(60, 100%, 50%), purple);//#7fff62;//#fefefe;
+				margin: 5% auto;
+				padding: 5%;
+				border: 15px solid black;
+				width: 80%;
+				font-size: 25px;
+                font-family: Bookman;
+				font-weight:bolder;
+				color:black;
+			}
+			
+			.modal3{
+				display: none;
+				position: fixed;
+				z-index: 20;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				background-color: red;
+				background: fixed;
+			}
+			
+			.modal3-content{
+				background: linear-gradient(to top, #fd5a5a, hsl(60, 100%, 50%));//#7fff62;//#fefefe;
+				margin: 5% auto;
+				padding: 5%;
+				border: 15px solid black;
+				width: 80%;
+				font-size: 25px;
+                font-family: Bookman;
+				font-weight:bolder;
+				color:black;
+			}
+			
+			
+			
+			.close{
+				color: #aaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+			}
+			
+			.close:hover, .close:focus{
+				color: black;
+				text-decoration: none;
+				cursor: pointer;
+			}
+			
+			
+			
+        </style>
+		
+    </head>
+    <body>
+		
+        <div class = "parallax1"> </div>
+        
+        <div class = "content"> 
+            <div id = "left" align:"center">WHY DONATE<br />
+				<p>Several people in the world today die because they do not receive sufficient blood when necessary.
+				By giving blood, every donor helps us meet the challenge of providing life-saving products whenever and wherever they are needed.
+				</p>
+				
+				<button id = "btn1" class = "button">MORE INFO</button>
+				
+			</div>
+				
+			<div id= "center" align:"center">WHO CAN DONATE
+				<p>	Before donating blood it is necessary to confirm whether all the critera of eligibility 
+				to donate are met. </p>
+				
+				<button id = "btn2" class = "button">MORE INFO</button>
+				
+			</div>
+			
+			
+		    <div id = "right" align:"center">PROCESS OF DONATION
+				
+				<p>Know all the steps need to donate as well as the requirements needed to be kept
+				before donating blood. </p>
+				
+				<button id = "btn3" class = "button">MORE INFO</button>
+				
+				
+				
+			</div>
+		</div>
+		
+		<div id = "modal1" class = "modal1">
+			<div class = "modal1-content">
+				<span class = "close1">&times;</span>
+				
+				<h1 align="center">THE NEED FOR BLOOD</h1>
+				
+				<p>Your blood's main components are red cells, plasma and platelets.  These are used to treat many different illnesses and conditions.
+				<br />They have a short shelf life, so we always need to top up the supply:
+				
+				<ul>
+					<li>red blood cells can be stored for up to 35 days</li>
+					<li>platelets can be stored for up to 7 days</li>
+					<li>plasma can be stored for up to 3 years</li>
+				</ul>
+				
+				
+				</p>
+				
+				<h2 style="color:red">Maintaining Blood supply</h2>
+				<p>We need to make sure that we have enough supplies of all blood groups and blood types to treat all types of conditions.
+				We need to maintain a regular supply of all blood groups and types so we can provide it to the hospitals and patients who need it.<br /><br />
+
+				Some rare sub-types are more common in specific communities, which is why we particularly need more black donors and are always looking for more blood donors from black, Asian and minority ethnic communities. 
+				<br /> <br />
+				We sometimes need to target specific blood types to increase stock levels. That's why we sometimes contact regular donors with the particular blood type we need, and ask them to give blood.
+				<br /> <br />
+				We are indebted to our regular blood donors for their role in helping us to save lives.
+				<br /> <br />
+				</p>
+				
+				<p style="color:red">See the impact donation of blood can have to real lives of real people on our 
+					<a style="color:blue" href="/Project/Stories.html">stories page</a>.
+				</p>
+			</div>
+		</div>
+        
+		<div id = "modal2" class = "modal2">
+			<div class = "modal2-content">
+				<span class = "close2">&times;</span>
+				
+				<h2 align="center">HOW DO YOU KNOW YOU CAN DONATE</h2>
+				
+				<p>Most people can give blood. You can give blood if you:
+					<ul>
+						<li>are fit and healthy</li>
+						<li>weigh between 7 stone 12 lbs and 25 stone, or 50kg and 160kg</li>
+						<li>are aged between 17 and 66 (or 70 if you have given blood before)</li>
+						<li>are over 70 and have given blood in the last two years</li>
+						
+					</ul>
+				</p>
+				
+				<h3 style="color:red">How often can I give blood?</h3>
+				<p>Men can give blood every 12 weeks and women can give blood every 16 weeks.</p>
+				
+				
+				<h3 style="color:red">Check you are able to give blood</h3>
+				<p>You can check some of the most common qquestions we receive from blood donors
+					through our <a href = "Eligibility.html" style="color:red">
+					Eligibility quiz<a/>.<br />
+					If you have a health condition, have travelled out of the country recently, 
+					or if you answer "yes" to any question in our quiz, 
+					please call 
+					<a style = "color: blue" href = "tel:+919862341523">+91 9862341523</a> 
+					for further advice about whether this affects you donating blood.
+					<br />
+					The common reasons donors should check if they can give blood are:
+					<ul>
+						<li>if you are receiving medical or hospital treatment</li>
+						<li>if you are taking medication</li>
+						<li>after travelling outside of the UK</li>
+						<li>after having a tattoo or piercing</li>
+						<li>during and after pregnancy</li>
+						<li>if you feel ill</li>
+						<li>if you have cancer</li>
+						<li>after receiving blood, blood products or organs.</li>
+						
+					</ul>
+					
+				</p>
+				
+				<h3 style="color:red">Blood Safety</h3>
+				<p>We must make sure it is safe for people to give blood and for patients
+					to receive donated blood. Blood safety information is below:  	
+					
+					<ul>
+						<li>You must not give blood or platelets if You think you need a test for HIV/AIDS, HTLV or hepatitis.</li>
+						<li>You must never give blood or platelets if</li>
+							<ul>
+								<li>You are HIV position</li>
+								<li>You are a hepatitis B carrier</li>
+								<li>You are a hepatitis C carrier</li>
+								<li>Your are HTLV positive</li>
+								<li>You have ever had or been treated for syphilis</li>
+								<li>You have ever received money or drugs for sex.</li>
+								<li>You have ever injected, or been injected with, drugs; 
+									even a long time ago or only once. This includes body-building 
+									drugs and injectable tanning agents. You may be able to give if 
+									a doctor prescribed the drugs. Please check with us to make sure.
+								</li>
+							</ul>
+						<li>
+							You must not give blood or platelets for at least 12 months after ssex
+							(even if you used a condom or other protective) with..
+							<li>You are HIV position</li>
+								<li>
+									If you are a man who, in the last 12 months has had oral or anal 
+									sex with another man (even if you used a condom or other protective). 
+									More information regarding this ruling  about men who have sex with men.
+								</li>
+								<li>
+									(If you are a woman) a man who has ever had oral or anal sex with another man, 
+									even if they used a condom or other protective. There are exceptions, so please check.
+								</li>
+								
+								<li>A partner who has ever received money or drugs for sex.</li>
+								<li>You have ever had or been treated for syphilis</li>
+								
+								<li>
+									A partner who has ever injected, or been injected with, drugs - even a long time 
+									ago or only once. This includes body-building drugs and injectable tanning agents. 
+									You may be able to give if a doctor prescribed the drugs. Please check with us 
+									to make sure.
+								</li>
+								
+								<li>
+									A partner who has, or you think may have been, sexually active in parts of the world 
+									where HIV/ AIDS is very common. This includes most countries in Africa. There are 
+									exceptions, so please check with us to make sure.
+								</li>
+						</li>
+						
+					</ul>
+					
+				</p>
+				
+				
+			</div>
+			
+		</div>
+		
+		<div id = "modal3" class = "modal3">
+			<div class = "modal3-content">
+				<span class = "close3">&times;</span>
+				
+				<h1 align="center">THE DONATION PROCESS</h1>
+				
+				<p>Giving blood is simple and it saves lives. When you give blood, 
+					it is collected so it can be used to treat someone else.<br />
+					
+					For most people, giving blood is easy and follows the simple steps
+					listed below. See our animation which takes you through what happens
+					step by step.
+					
+					<h2 style="color:red">Before you give blood</h2>
+					<ol>
+						<li>Check if you are able to ive blood</li>
+						<li>Find an appointment: A number of appointments can be booked in
+							advance. If you are unable to book now, then please try for 
+							a later date.A limited number of walk-in slots are available.</li>
+						<li>Register to be a donor online, call <a style = "color: aqua" href = "tel:+917204069657">+91 7204069657</a>, or attend a
+							donation venue.</li>
+						<li>Follow the preparing to give blood recommendations.</li>
+						<li>If you are unable to keep your donation appointment please try and
+							give us at least 72 hours notice. You can cancel or reschedule by 
+							signing in to your online account.</li>
+						
+					</ol>
+				
+				
+				</p>
+				
+				<h2 style="color:red">When you give blood</h2>
+				<p>This is what will happen when you attend your appointment, or go to a 
+					drop-in session, to give blood. If you attend an appointment to give blood 
+					we aim to ensure it takes no more than an hour.
+					
+					<h3 style="color:#DC143C">1. Welcome and preparation</h3>
+					</p>
+						We will ask you to read our welcome leaflet (pdf) which explains the 
+						importance of blood safety. It is important to read this whenever you attend 
+						because advice does change. We will give you 500ml of fluid just before you 
+						give blood. Drinking this over about 5 minutes will help with your well-being 
+						during and after donation.
+					</p>
+					
+					
+					<h3 style="color:#DC143C">2. Health screening</h3>
+					</p>
+						We make sure it is safe for you to donate, and that your blood donation is safe 
+						for a patient to receive
+						
+						<ul>
+							<li>We confirm your identity and ask you about the information on your donor health check form; a registered nurse may follow up if necessary.</li>
+							<li>We test a drop of blood from your finger to check the iron levels (haemoglobin) in your blood.</li>
+							
+						</ul>
+						
+						If you are not able to donate we will explain why, and may ask you to make another appointment. <br /> <br />
+						
+						If you are able to donate you will be asked to sit in a waiting area until you are called to a donation chair. 
+						
+					</p>
+					
+					<h3 style="color:#DC143C">3. Your blood donation</h3>
+					
+					</p>
+						When you are comfortable on the chair we will ask you to confirm your name, address and date of birth.<br /><br />
+						
+						We examine your arm and place a cuff on your arm to maintain a small amount of pressure during donation (this does not measure blood pressure).<br /><br />
+						We then examine your arm to find a suitable vein and clean it with an antiseptic sponge.<br />
+						
+						<ol>
+							<li>We will insert a needle in your arm which will collect your blood into a blood bag with your unique donor number.</li>
+							<li>You should not feel any discomfort or pain. If you do, tell a member of staff.</li>
+							<li>A scale weighs the blood and stops when you have donated 470ml (or just under a pint). This usually takes between 5-10 minutes.</li>
+							<li>The needle will be removed and a sterile dressing applied to your arm.</li>
+							
+						</ol>
+						
+						
+					</p>
+
+					<a href="Register_Donor.html" style = "color: red">Register as a donor</a>
+					
+					
+				</p>
+				
+				
+			</div>
+		</div>
+		
+        <div class = "parallax4"> </div>
+        
+        <ul class = "menubar">
+			<li class = "menubar"><a class = "menubar" href="/Project/Home.html">Home</a></li>
+			<li class = "menubar"><a class = "menubar" href="/Project/Info.html">Information</a></li>
+            <li class = "menubar"><a class = "menubar" href="/Project/Eligibility.html">Eligibility</a></li>
+            <li class = "menubar"><a class = "menubar" href = "/Project/Stories.html">Stories</a></li>
+			<li class = "menubar"><a class = "menubar" href = "/Project/ContactUs.html">Contact Us</a></li>
+            
+		</ul>
+    </body>
+	<script>
+				var modal1 = document.getElementById('modal1');
+				var btn1 = document.getElementById('btn1');
+				var span1 = document.getElementsByClassName("close1")[0];
+				
+				btn1.onclick = function(){
+					modal1.style.display = "block";
+					
+				}
+				
+				span1.onclick = function(){
+					modal1.style.display = "none";
+				}
+				
+				window.onclick = function(event){
+					if (event.target == modal1){
+						modal1.style.display = "none";
+					}
+				}
+				
+				
+				var modal2 = document.getElementById('modal2');
+				var btn2 = document.getElementById('btn2');
+				var span2 = document.getElementsByClassName("close2")[0];
+					
+				btn2.onclick = function(){
+					modal2.style.display = "block";
+				}
+					
+				span2.onclick = function(){
+					modal2.style.display = "none";
+				}
+					
+				window.onclick = function(event){
+					if (event.target == modal2){
+						modal2.style.display = "none";
+					}
+				}
+			
+			var modal3 = document.getElementById('modal3');
+				var btn3 = document.getElementById('btn3');
+				var span3 = document.getElementsByClassName("close3")[0];
+					
+				btn3.onclick = function(){
+					modal3.style.display = "block";
+				}
+					
+				span3.onclick = function(){
+					modal3.style.display = "none";
+				}
+					
+				window.onclick = function(event){
+					if (event.target == modal3){
+						modal3.style.display = "none";
+					}
+				}
+			
+			
+		</script>
+</html>

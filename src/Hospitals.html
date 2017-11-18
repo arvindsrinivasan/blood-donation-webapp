@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            body, html{
+                height: 100%;
+                margin: 0;
+            }
+            
+            .parallax {
+                /* The image used */
+                background-image: url('Ribbon.jpg');
+                /* Full height */
+                height: 100%; 
+
+                /* Create the parallax scrolling effect */
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            
+            .info{
+                display: inline-block;
+                padding: 15%;
+                padding-left: 7%;
+                padding-right: 7%;
+                background-color: white;
+                margin-left: 5%;
+                border-radius: 15px 100px;
+                width: 300px;
+                height: 200px;
+                position: relative;
+                bottom: 120px;
+                font-size: 18px;
+            }
+            
+            .circle-container {
+                display: inline-block;
+                padding: 5%;
+                background-color: #fd5a5a;
+                position: relative;
+                width: 24em;
+                height: 24em;
+                /*2.8em = 2em*1.4 (2em = half the width of a link with img, 1.4 = sqrt(2))*/
+                border-radius: 50%;
+                
+            }
+            .circle-container a {
+                display: block;
+                position: absolute;
+                top: 50%; left: 50%;
+                width: 4em; height: 4em;
+                margin: -2em;
+            }
+            
+            .circle-container img { display: block; width: 100%; }
+            .deg0 { transform: translate(12em); } /* 12em = half the width of the wrapper */
+            .deg45 { transform: rotate(45deg) translate(12em) rotate(-45deg); }
+            .deg135 { transform: rotate(135deg) translate(12em) rotate(-135deg); }
+            .deg180 { transform: translate(-12em); }
+            .deg225 { transform: rotate(225deg) translate(12em) rotate(-225deg); }
+            .deg315 { transform: rotate(315deg) translate(12em) rotate(-315deg); }
+			
+			ul.menubar{ 
+                display: block;
+                margin: auto;
+                text-align: center;
+                padding-top: 5%;
+                padding-bottom: 5%;
+                margin: 0px;
+                list-style-type:none;
+                background-color:red;
+               }
+            li.menubar{
+                display:inline;
+                padding-left: 60px;
+                padding-right: 30px;
+            }
+            a.menubar{
+                display: inline;
+                text-decoration:none;
+                font-weight:bolder;
+                color:white;
+                font-size:30px;
+                font-family: sans-serif;
+                transition-duration: 1s;
+            }
+            a.menubar:hover{
+                color:lightpink;
+            }
+        </style>
+        <script>
+            function changeImage(pic){
+                var pict = document.getElementById("center");
+                pict.setAttribute('src', pic);
+            }
+            function changeInfo(name, text){
+                var info1 = document.getElementById("info1");
+                var info2 = document.getElementById("info2");
+                info1.innerHTML = name;
+                info2.innerHTML = text;
+            }
+        </script>
+    </head>
+    <body>
+        <div class = "parallax"> </div>
+        <div style = "background-color: #fd5a5a; padding: 10%;">
+            <h1 style = "font-size:80px; color:white;"> OUR HOSPITALS </h1>
+            <div class='circle-container'>
+                 <a href='#' class='center'><img id = "center" style = "height: 13em; width: 13em; position: relative; right: 4em; bottom: 4em;" src='CA_Large.png'></a>
+                 <a href='#' class='deg0'><img onmouseover="changeImage('CA_Large.png'); changeInfo('Columbia Asia', 'A premier multispecialty healthcare facility dedicated to the residents of Whitefield - Bangalore.</br></br> Phone Number: 080 2554 9882')" src='CA.png'></a>
+                 <a href='#' class='deg45'><img onmouseover="changeImage('Apollo_Large.png'); changeInfo('Apollo Hospital', 'Apollo Hospitals, Bengaluru is a tertiary care flagship unit of the Apollo Hospitals group.</br></br>Phone Number: 080 2630 4050')" src='Apollo.png'></a>
+                 <a href='#' class='deg135' onmouseover="changeImage('Fortis_Large.png'); changeInfo('Fortis Hospital', 'The Fortis Hospital at Bannerghatta Road is a 276 bedded multi-speciality tertiary care hospital.</br></br>Phone Number: 080 6621 4444')"><img src='Fortis.png'></a>
+                 <a href='#' class='deg180'><img onmouseover="changeImage('Manipal_Large.png'); changeInfo('Manipal Hospital', 'Manipal Hospital, Bangalore is devoted in providing world category health care to everyone.</br></br>Phone Number: 080 2502 7000')" src='Manipal.png'></a>
+                 <a href='#' class='deg225'><img onmouseover="changeImage('NH_Large.png'); changeInfo('NH Hospital', 'Narayana Health is a chain of multi-specialty hospitals in India, with its headquarters in Bengaluru.</br></br>Phone Number: 080 2500 4455')" src='NH.png'></a>
+                 <a href='#' class='deg315'><img onmouseover="changeImage('Sagar_Large.png'); changeInfo('Sagar Hospital', 'Sagar hospitals, located at Jaya Prakash Nagar is Multi-Speciality Hospital in Bangalore.</br></br>Phone Number: 080 4288 8888')" src='Sagar.png'></a>
+            </div>
+            <div class = "info">
+                <h1 id = 'info1'>Columbia Asia</h1>
+                <p id = 'info2'> A premier multispecialty healthcare facility dedicated to the residents of Whitefield - Bangalore.</br></br> Phone Number: 080 25549882</p>
+            </div>
+        </div>
+		<ul class = "menubar">
+			<li class = "menubar"><a class = "menubar" href="/Project/Home.html">Home</a></li>
+			<li class = "menubar"><a class = "menubar" href="/Project/Info.html">Information</a></li>
+            <li class = "menubar"><a class = "menubar" href="/Project/Eligibility.html">Eligibility</a></li>
+            <li class = "menubar"><a class = "menubar" href = "/Project/Stories.html">Stories</a></li>
+			<li class = "menubar"><a class = "menubar" href = "/Project/ContactUs.html">Contact Us</a></li>
+            
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style>
+* {
+  box-sizing: border-box;
+}
+body, html {
+ height: 100%;
+ margin: 0;
+}
+body {
+  background-color: #FF8A80;
+}
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: sans-serif;
+  padding: 40px;
+  width: 50%;
+  min-width: 300px;
+
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+h1 {
+  text-align: center;
+}
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: sans-serif;
+  border: 1px solid #aaaaaa;
+}
+.tab {
+  text-transform: uppercase;
+  align-items: center;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: bold;
+}
+button {
+  background-color: #D32F2F;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.8;
+}
+#prevBtn {
+  background-color: #D32F2F;
+}
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+.step.active {
+  opacity: 1;
+}
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+.caption {
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #000;
+}
+.caption span.heading {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 32px;
+    letter-spacing: 10px;
+}
+
+#regForm:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+div. {
+    display: block;
+}
+			ul.menubar{ 
+                display: block;
+                margin: auto;
+                text-align: center;
+                padding-top: 5%;
+                padding-bottom: 5%;
+                margin: 0px;
+                list-style-type:none;
+                background-color:red;
+				height:50%;
+               }
+            li.menubar{
+                display:inline;
+                padding-left: 60px;
+                padding-right: 30px;
+            }
+            a.menubar{
+                display: inline;
+                text-decoration:none;
+                font-weight:bolder;
+                color:white;
+                font-size:30px;
+                font-family: sans-serif;
+                transition-duration: 1s;
+            }
+            a.menubar:hover{
+                color:lightpink;
+            }
+</style>
+<body>
+
+  <div class="caption">
+      <span class="heading">SORRY</span>
+  </div>
+<div id="regForm" class="card">
+  <div class="tab">
+    <p style="text-align: center">You are not eligible to donate blood :(</p>
+  </div>
+</div>
+		<ul class = "menubar">
+			<li class = "menubar"><a class = "menubar" href="/Project/Home.html">Home</a></li>
+			<li class = "menubar"><a class = "menubar" href="/Project/Info.html">Information</a></li>
+            <li class = "menubar"><a class = "menubar" href="/Project/Eligibility.html">Eligibility</a></li>
+            <li class = "menubar"><a class = "menubar" href = "/Project/Stories.html">Stories</a></li>
+			<li class = "menubar"><a class = "menubar" href = "/Project/ContactUs.html">Contact Us</a></li>
+            
+        </ul>
+
+</body>
+</html>

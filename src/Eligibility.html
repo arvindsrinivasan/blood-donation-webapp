@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<style>
+* {
+  box-sizing: border-box;
+}
+body, html {
+ height: 100%;
+ margin: 0;
+}
+body {
+  background-color: #FF8A80;
+}
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: sans-serif;
+  padding: 40px;
+  width: 50%;
+  min-width: 300px;
+
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+h1 {
+  text-align: center;
+}
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: sans-serif;
+  border: 1px solid #aaaaaa;
+}
+/* Hide all steps by default: */
+.tab {
+  display: none;
+  text-transform: uppercase;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: bold;
+}
+button {
+  background-color: #D32F2F;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.8;
+}
+#prevBtn {
+  background-color: #D32F2F;
+}
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+.step.active {
+  opacity: 1;
+}
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+.caption {
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #000;
+}
+.caption span.heading {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 32px;
+    letter-spacing: 10px;
+}
+
+#regForm:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+div. {
+    display: block;
+}
+
+			ul.menubar{ 
+                display: block;
+                margin: auto;
+                text-align: center;
+                padding-top: 5%;
+                padding-bottom: 5%;
+                margin: 0px;
+                list-style-type:none;
+                background-color:red;
+				height:35%;
+               }
+            li.menubar{
+                display:inline;
+                padding-left: 60px;
+                padding-right: 30px;
+            }
+            a.menubar{
+                display: inline;
+                text-decoration:none;
+                font-weight:bolder;
+                color:white;
+                font-size:30px;
+                font-family: sans-serif;
+                transition-duration: 1s;
+            }
+            a.menubar:hover{
+                color:lightpink;
+            }
+</style>
+<body>
+
+  <div class="caption">
+      <span class="heading">ARE YOU ELIGIBLE TO DONATE BLOOD ?</span>
+  </div>
+<form id="regForm" action="eligible.html" class="card">
+
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">
+    <p>Are you under 16 years old?</p>
+  </div>
+  <div class="tab">
+    <p>ARE YOU OVER 70 YEARS OLD?</p>
+  </div>
+  <div class="tab">
+    <p>HAD A TATTOO IN THE LAST 4 MONTHS?</p>
+  </div>
+  <div class="tab">
+    <p>PREGNANT OR JUST GIVEN BIRTH?</p>
+  </div>
+  <div class="tab">
+    <p>HAVE A SERIOUS HEART CONDITION?</p>
+  </div>
+  <div class="tab">
+    <p>LOW IN IRON?</p>
+  </div>
+  <div class="tab">
+    <p>EVER INJECTED RECREATIONAL DRUGS?</p>
+  </div>
+  <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="window.location.href = 'fail.html'">Yes</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">No</button>
+    </div>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
+</form>
+
+		<ul class = "menubar">
+			<li class = "menubar"><a class = "menubar" href="/Project/Home.html">Home</a></li>
+			<li class = "menubar"><a class = "menubar" href="/Project/Info.html">Information</a></li>
+            <li class = "menubar"><a class = "menubar" href="/Project/Eligibility.html">Eligibility</a></li>
+            <li class = "menubar"><a class = "menubar" href = "/Project/Stories.html">Stories</a></li>
+			<li class = "menubar"><a class = "menubar" href = "/Project/ContactUs.html">Contact Us</a></li>
+            
+        </ul>
+
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the crurrent tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+
+    document.getElementById("prevBtn").style.display = "inline";
+
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+</script>
+
+</body>
+</html>
