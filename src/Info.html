@@ -3,10 +3,9 @@
 <html>
     <head>
         <style>
-			
-
+		
             body, html {
-				width:100%;
+		width:100%;
                 height: 100%;
                 margin: 0;
 				
@@ -17,8 +16,9 @@
                 background-image: url('InfoCover.jpg');
                 /* Full height */
                 height: 70%; 
-				z-index:1;
-                /* Create the parallax scrolling effect */
+		z-index:1;
+                
+		/* Create the parallax scrolling effect */
                 background-attachment: fixed;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -30,7 +30,8 @@
                 background-image: url('InfoCover22.jpg');
                 /* Full height */
                 height: 100%; 
-				z-index:1;
+		z-index:1;
+
                 /* Create the parallax scrolling effect */
                 background-attachment: fixed;
                 background-position: center;
@@ -40,18 +41,18 @@
             
             .content{
 				
-				display: flex;
-				background-color: #fd5a5a;
-				z-index:1;
-				padding-left: 10%;
+		display: flex;
+		background-color: #fd5a5a;
+		z-index:1;
+		padding-left: 10%;
                 padding-right: 10%;
                 padding-top: 5%;
                 padding-bottom: 5%;
             }
 			
-			.content > div{
-				flex:1;
-			}
+		.content > div{
+			flex:1;
+		}
             
             .text{
                 margin-bottom: 10%;
@@ -60,97 +61,96 @@
                 font-family: Bookman;
             }
             
-			#left{
-				border: 10px solid black;
-				margin:20px;
-				padding-top: 3%;
-                padding-bottom: 3%;
-				padding-left:1%;
-				padding-right:1%;
-				height:400px;
-				z-index:0;
-				width: 20%;
-				
-				font-size: 25px;
-                font-family: Bookman;
-				text-align:center;
-                font-weight:bolder;
-				color:black;
-				background-color: #7fff62;
-				box-shadow: -10px 10px 10px black;
-			}
+		#left{
+			border: 10px solid black;
+			margin:20px;
+			padding-top: 3%;
+        	        padding-bottom: 3%;
+			padding-left:1%;
+			padding-right:1%;
+			height:400px;
+			z-index:0;
+			width: 20%;
+			font-size: 25px;
+        	        font-family: Bookman;
+			text-align:center;
+        	        font-weight:bolder;
+			color:black;
+			background-color: #7fff62;
+			box-shadow: -10px 10px 10px black;
+		}
 			
-			#popUpImage{
-				height:449px;
-				width:800px;
-				margin:0 auto;
-				position:relative;
-				z-index:50;
-				display:none;
-				background-color:olive;
-				border:5px solid black;
-				border-radius:10px;
-			}
-			#popUpImage:target, #popUpImage:target + #cover{
-				display:block;
-			}
-			.cancel
-			{
-				display:block;
-				position:absolute;
-				top:3px;
-				right:2px;
-				background:transparent;
-				color:black;
-				height:30px;
-				width:35px;
-				font-size:30px;
-				text-align:center;
-				font-weight:bold;
-			}
+		#popUpImage{
+			height:449px;
+			width:800px;
+			margin:0 auto;
+			position:relative;
+			z-index:50;
+			display:none;
+			background-color:olive;
+			border:5px solid black;
+			border-radius:10px;
+		}
+		#popUpImage:target, #popUpImage:target + #cover{
+			display:block;
+		}
+		.cancel
+		{
+			display:block;
+			position:absolute;
+			top:3px;
+			right:2px;
+			background:transparent;
+			color:black;
+			height:30px;
+			width:35px;
+			font-size:30px;
+			text-align:center;
+			font-weight:bold;
+		}
 			
+		
+		#center{
+			border: 10px solid black;
+			margin:20px;
+			padding-top: 3%;
+        	        padding-bottom: 3%;
+			padding-left:1%;
+			padding-right:1%;
+			width: 20%;
+			z-index:1;
+			height:400px;
+			font-size: 25px;
+        	        font-family: Bookman;
+			text-align:center;
+			font-weight:bolder;
+			color:black;
+			background-color: blue;
+			opacity:0.5;
+			box-shadow: 0px 10px 10px black;
 			
-			#center{
-				border: 10px solid black;
-				margin:20px;
-				padding-top: 3%;
-                padding-bottom: 3%;
-				padding-left:1%;
-				padding-right:1%;
-				width: 20%;
-				z-index:1;
-				height:400px;
-				font-size: 25px;
-                font-family: Bookman;
-				text-align:center;
-				font-weight:bolder;
-				color:black;
-				background-color: blue;
-				opacity:0.5;
-				box-shadow: 0px 10px 10px black;
-				
-			}
+		}
 			
-			#right{
-				border: 10px solid black;
-				margin:20px ;
-				padding-top: 3%;//1
-                padding-bottom: 3%;//1
-				padding-left:1%;//.5
-				padding-right:1%;
-				width: 22%;
-				z-index:1;
-				height:440px;
-				font-size: 25px;
-                font-family: Bookman;
-				text-align:center;
-				font-weight:bolder;
-				color:black;
-				background-color:hsl(60, 100%, 50%);
-				opacity:0.5;
-				box-shadow: 10px 10px 10px black;
-				
-			}
+		#right{
+			border: 10px solid black;
+			margin:20px ;
+			padding-top: 3%;//1
+        	        padding-bottom: 3%;//1
+			padding-left:1%;//.5
+			padding-right:1%;
+			width: 22%;
+			z-index:1;
+			height:440px;
+			font-size: 25px;
+        	        font-family: Bookman;
+			text-align:center;
+			font-weight:bolder;
+			color:black;
+			background-color:hsl(60, 100%, 50%);
+			opacity:0.5;
+			box-shadow: 10px 10px 10px black;
+			
+		}
 			
 			
             .button {
@@ -203,31 +203,31 @@
             a.menubar:hover{
                 color:lightpink;
             }
+		
+		#cover{
+			position:fixed;
+			top:0;
+			left:0;
+			background:rgba(0,0,0,0.6);
+			z-index:1;
+			width:100%;
+			height:100%;
+			display:none;
+		}
 			
-			#cover{
-				position:fixed;
-				top:0;
-				left:0;
-				background:rgba(0,0,0,0.6);
-				z-index:1;
-				width:100%;
-				height:100%;
-				display:none;
-			}
+		.modal1{
+			display: none;
+			position: fixed;
+			z-index: 20;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgb(0, 0, 0, 0.4);
+			background: fixed;
 			
-			.modal1{
-				display: none;
-				position: fixed;
-				z-index: 20;
-				left: 0;
-				top: 0;
-				width: 100%;
-				height: 100%;
-				overflow: auto;
-				background-color: rgb(0, 0, 0, 0.4);
-				background: fixed;
-				
-			}
+		}
 			// MAKE IT STOOOOOOP
 			
 			body.modal1-open {
@@ -235,17 +235,17 @@
 				position: fixed;
 			}
 			
-			.modal1-content{
-				background: linear-gradient(to top, purple, #7fff62);//#7fff62;//#fefefe;
-				margin: 5% auto;
-				padding: 5%;
-				border: 15px solid black;
-				width: 80%;
-				font-size: 25px;
-                font-family: Bookman;
-				font-weight:bolder;
-				color:black;
-			}
+		.modal1-content{
+			background: linear-gradient(to top, purple, #7fff62);//#7fff62;//#fefefe;
+			margin: 5% auto;
+			padding: 5%;
+			border: 15px solid black;
+			width: 80%;
+			font-size: 25px;
+        	        font-family: Bookman;
+			font-weight:bolder;
+			color:black;
+		}
 			
 			.modal2{
 				display: none;
@@ -267,7 +267,7 @@
 				border: 15px solid black;
 				width: 80%;
 				font-size: 25px;
-                font-family: Bookman;
+             			font-family: Bookman;
 				font-weight:bolder;
 				color:black;
 			}
@@ -292,7 +292,7 @@
 				border: 15px solid black;
 				width: 80%;
 				font-size: 25px;
-                font-family: Bookman;
+         		        font-family: Bookman;
 				font-weight:bolder;
 				color:black;
 			}
